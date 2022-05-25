@@ -18,6 +18,21 @@ public class Task2 {
      * @return - an array of the squares of each number sorted in non-decreasing order
      */
     public int[] squaresOfSortedArray(int[] input) {
-        return null;
+        int[] result = new int[input.length];
+
+        int startIndex = 0;
+        int endIndex = input.length - 1;
+
+        for (int i = endIndex; startIndex <= endIndex; i--){
+            if(Math.abs(input[startIndex]) > Math.abs(input[endIndex])){
+                result[i] = input[startIndex] * input[startIndex];
+                startIndex++;
+            }else {
+                result[i] = input[endIndex] * input[endIndex];
+                endIndex--;
+            }
+        }
+
+        return result;
     }
 }

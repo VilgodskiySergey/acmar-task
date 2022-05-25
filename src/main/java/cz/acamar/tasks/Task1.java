@@ -1,5 +1,9 @@
 package cz.acamar.tasks;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Task1 {
 
     /**
@@ -17,6 +21,14 @@ public class Task1 {
      * @return - the length of the last word in the string.
      */
     public int lengthOfLastWord(String str) {
-        return 0;
+        if (str == null || str.isEmpty()) {
+            return 0;
+        }
+
+        final List<String> words = Arrays.stream(str.split(" "))
+                .filter(word -> !word.isEmpty())
+                .collect(Collectors.toList());
+
+        return words.get(words.size() - 1).length();
     }
 }
